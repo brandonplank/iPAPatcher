@@ -1,6 +1,9 @@
 # iPAPatcher
+An iPA Patching utility
+
 ## Requirements
-- Xcode Command Line Tools
+- [Brew](https://brew.sh) (<code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"</code>)
+- dpkg (<code>brew install dpkg</code>)
 - zip
-- dpkg(brew insall dpkg)
-- macOS >= 10.14
+- Xcode Command Line Tools (Should come as default with XCode)
+- macOS >= 10.10
