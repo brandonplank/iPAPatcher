@@ -2,5 +2,5 @@
 ## Requirements
 - Xcode Command Line Tools
 - zip
-- dpkg(brew insall dpkg)
+- dpkg(brew install dpkg)
 - macOS >= 10.14
