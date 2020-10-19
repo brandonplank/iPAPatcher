@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/brandonplank/Desktop/Projects/iPAPatcher/iPA\ Patcher/main.m
+  /Users/brandonplank/Documents/GitHub/iPAPatcher/iPA\ Patcher/main.m

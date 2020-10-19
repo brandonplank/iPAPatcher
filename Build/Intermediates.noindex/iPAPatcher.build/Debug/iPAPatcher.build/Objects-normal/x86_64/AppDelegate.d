@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/brandonplank/Desktop/Projects/iPAPatcher/iPA\ Patcher/AppDelegate.m \
-  /Users/brandonplank/Desktop/Projects/iPAPatcher/iPA\ Patcher/AppDelegate.h
+  /Users/brandonplank/Documents/GitHub/iPAPatcher/iPA\ Patcher/AppDelegate.m \
+  /Users/brandonplank/Documents/GitHub/iPAPatcher/iPA\ Patcher/AppDelegate.h

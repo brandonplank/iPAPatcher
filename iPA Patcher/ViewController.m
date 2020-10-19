@@ -14,7 +14,7 @@
 #define fileExists(file) [[NSFileManager defaultManager] fileExistsAtPath:@(file)]
 
 NSString *ipaPath = @"";
-NSString *dylibPath = @"";
+NSMutableArray *dylibPath;
 
 bool ipa_chosen = false;
 bool dylib_chosen = false;
@@ -60,6 +60,32 @@ NSString *cmdV(NSString *command) {
   pclose(fp);
 
   return [[NSString stringWithFormat:@"%s", path] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+}
+
+NSArray *cmdVInArray(NSString *command) {
+    NSMutableArray *wtfbrandon = [NSMutableArray array];
+    FILE *fp;
+    char path[1035];
+
+    /* Open the command for reading. */
+    fp = popen([command UTF8String], "r");
+    if (fp == NULL) {
+        printf("Failed to run command\n" );
+        exit(1);
+    }
+
+    /* Read the output a line at a time - output it. */
+    while (fgets(path, sizeof(path), fp) != NULL) {
+        printf("%s", path);
+        NSString *formattedPath = [NSString stringWithFormat:@"%s", path];
+        [wtfbrandon addObject:formattedPath];
+      
+    }
+
+    /* close */
+    pclose(fp);
+
+    return [wtfbrandon copy];
 }
 
 void noticeMsg(NSString *message){
@@ -113,9 +139,9 @@ void noticeMsg(NSString *message){
         
         //do deb work to get actual dylib.
         
-        NSString *dylibPathFinder;
-        
-        dylibPath = [[NSString stringWithFormat:@"%@", dylibPath] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+        NSArray *dylibPathFinder;
+        [dylibPath replaceObjectAtIndex:0 withObject:[[NSString stringWithFormat:@"%@", dylibPath[0]] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "]];
+        printf("fixed dylib path: %s\n", [dylibPath[0] UTF8String]);
         
         if(isDeb){
             cmd = @"";
@@ -127,7 +153,7 @@ void noticeMsg(NSString *message){
                 system([cmd UTF8String]);
                 return;
             }
-            cmd = [NSString stringWithFormat:@"/usr/local/bin/dpkg -x %@ %@/deb/", [[NSString stringWithFormat:@"%@", dylibPath] stringByReplacingOccurrencesOfString:@"\n" withString:@""] ,tempPath];
+            cmd = [NSString stringWithFormat:@"/usr/local/bin/dpkg -x %@ %@/deb/", [[NSString stringWithFormat:@"%@", dylibPath[0]] stringByReplacingOccurrencesOfString:@"\n" withString:@""] ,tempPath];
             system([cmd UTF8String]);
             NSString *wavecheck = [NSString stringWithFormat:@"%@/deb/Library/MobileSubstrate/DynamicLibraries", tempPath];
             if(!fileExists([wavecheck UTF8String])){
@@ -138,12 +164,14 @@ void noticeMsg(NSString *message){
             }
             cmd = [NSString stringWithFormat:@"(set -- \"%@/deb/Library/MobileSubstrate/DynamicLibraries/\"*.dylib; echo \"$1\")", tempPath];
 
-            dylibPathFinder = cmdV(cmd);
+            dylibPathFinder = cmdVInArray(cmd);
             
-            printf("%s\n", [dylibPathFinder UTF8String]);
-            dylibPath = @"";
-            NSArray *duh = [dylibPathFinder componentsSeparatedByString:@"/"];
-            dylibPath = [NSString stringWithFormat:@"%@/deb/Library/MobileSubstrate/DynamicLibraries/%@", tempPath, duh.lastObject];
+            for(int i=0;i<dylibPathFinder.count;i++){
+                printf("%s\n", [dylibPathFinder[i] UTF8String]);
+                dylibPath[0] = @"";
+                NSArray *duh = [dylibPathFinder[i] componentsSeparatedByString:@"/"];
+                dylibPath[i] = [[NSString stringWithFormat:@"%@/deb/Library/MobileSubstrate/DynamicLibraries/%@", tempPath, duh.lastObject] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            }
         }
         
         ipaPath = [[NSString stringWithFormat:@"%@", ipaPath] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
@@ -176,8 +204,10 @@ void noticeMsg(NSString *message){
         NSString *substrate = [NSString stringWithFormat:@"%@", [Bundle pathForResource:@"CydiaSubstrate" ofType:@"framework"]];
         substrate = [[NSString stringWithFormat:@"%@", substrate] stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
         printf("START====\n%s\n%s\n%s\n", [subpath1 UTF8String], [subpath2 UTF8String], [substrate UTF8String]);
-        cmd = [NSString stringWithFormat:@"cp %@ %@/Dylibs", dylibPath, appPath];
-        cmdV(cmd);
+        for(int i=0;i<dylibPath.count;i++){
+            cmd = [NSString stringWithFormat:@"cp %@ %@/Dylibs", dylibPath[i], appPath];
+            cmdV(cmd);
+        }
         cmd = [NSString stringWithFormat:@"cp %@ %@/Dylibs",subpath1, appPath];
         cmdV(cmd);
         cmd = [NSString stringWithFormat:@"cp %@ %@/Dylibs", subpath2, appPath];
@@ -185,20 +215,25 @@ void noticeMsg(NSString *message){
         cmd = [NSString stringWithFormat:@"cp -r %@ %@/Frameworks", substrate, appPath];
         cmdV(cmd);
         
-        NSArray *dylibNameArray = [dylibPath componentsSeparatedByString:@"/"];
-        NSLog(@"array:%@", dylibNameArray);
-        NSString *dylibName = [NSString stringWithFormat:@"%@",dylibNameArray.lastObject];
         
-        cmd = [NSString stringWithFormat:@"install_name_tool -change /usr/lib/libsubstrate.dylib @executable_path/Frameworks/CydiaSubstrate.framework/CydiaSubstrate %@/Dylibs/%@ && install_name_tool -change /Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate @executable_path/Frameworks/CydiaSubstrate.framework/CydiaSubstrate %@/Dylibs/%@", appPath, dylibName, appPath, dylibName];
-        system([cmd UTF8String]);
         
+        for(int i=0;i<dylibPath.count;i++){
+            NSArray *dylibNameArray = [dylibPath[i] componentsSeparatedByString:@"/"];
+            NSLog(@"array:%@", dylibNameArray);
+            NSString *dylibName = [NSString stringWithFormat:@"%@",dylibNameArray.lastObject];
+
+            cmd = [NSString stringWithFormat:@"install_name_tool -change /usr/lib/libsubstrate.dylib @executable_path/Frameworks/CydiaSubstrate.framework/CydiaSubstrate %@/Dylibs/%@ && install_name_tool -change /Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate @executable_path/Frameworks/CydiaSubstrate.framework/CydiaSubstrate %@/Dylibs/%@", appPath, dylibName, appPath, dylibName];
+            system([cmd UTF8String]);
+            
+            cmd = [NSString stringWithFormat:@"%@ install -c load -p @executable_path/Dylibs/%@ -t %@/%@", opToolPath, dylibName ,appPath, binaryPath];
+            system([cmd UTF8String]);
+        }
+
         cmd = [NSString stringWithFormat:@"%@ install -c load -p @executable_path/Frameworks/CydiaSubstrate.framework/CydiaSubstrate -t %@/%@", opToolPath, appPath, binaryPath];
         system([cmd UTF8String]);
         cmd = [NSString stringWithFormat:@"%@ install -c load -p @executable_path/Dylibs/libsubstitute.0.dylib -t %@/%@", opToolPath, appPath, binaryPath];
         system([cmd UTF8String]);
         cmd = [NSString stringWithFormat:@"%@ install -c load -p @executable_path/Dylibs/libsubstitute.dylib -t %@/%@", opToolPath, appPath, binaryPath];
-        system([cmd UTF8String]);
-        cmd = [NSString stringWithFormat:@"%@ install -c load -p @executable_path/Dylibs/%@ -t %@/%@", opToolPath, dylibName ,appPath, binaryPath];
         system([cmd UTF8String]);
         
         cmd = [NSString stringWithFormat:@"cd %@ && zip -r ~/Downloads/%@.ipa Payload/", tempPath, binaryPath];
@@ -279,7 +314,8 @@ void errorMsg(NSString *message){
             }
             NSString *filename = [NSString stringWithFormat:@"%@", [NSString stringWithFormat:@"%@", [oururl.path componentsSeparatedByString:@"/"].lastObject]];
             _chooseDylibOut.title = filename;
-            dylibPath = oururl.path;
+            dylibPath = [[NSMutableArray alloc] init];
+            [dylibPath insertObject:oururl.path atIndex:0];
             dylib_chosen = true;
         }
         if(ipa_chosen && dylib_chosen){
