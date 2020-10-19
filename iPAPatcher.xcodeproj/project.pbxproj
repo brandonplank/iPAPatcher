@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		886F4F33253B91ED0055C4E2 /* libsubstitute.0.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 886F4F30253B91ED0055C4E2 /* libsubstitute.0.dylib */; };
+		886F4F34253B91ED0055C4E2 /* libsubstitute.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 886F4F31253B91ED0055C4E2 /* libsubstitute.dylib */; };
+		886F4F35253B91ED0055C4E2 /* CydiaSubstrate.framework in Resources */ = {isa = PBXBuildFile; fileRef = 886F4F32253B91ED0055C4E2 /* CydiaSubstrate.framework */; };
+		886F4F49253CDFBE0055C4E2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886F4F48253CDFBE0055C4E2 /* Security.framework */; };
+		888758B2253A767D0015D0A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 888758B1253A767D0015D0A6 /* AppDelegate.m */; };
+		888758B5253A767D0015D0A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 888758B4253A767D0015D0A6 /* ViewController.m */; };
+		888758B7253A76800015D0A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888758B6253A76800015D0A6 /* Assets.xcassets */; };
+		888758BA253A76800015D0A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888758B8253A76800015D0A6 /* Main.storyboard */; };
+		888758BD253A76800015D0A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 888758BC253A76800015D0A6 /* main.m */; };
+		888758E2253B6F720015D0A6 /* optool in Resources */ = {isa = PBXBuildFile; fileRef = 888758E0253B6F5B0015D0A6 /* optool */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		886F4F30253B91ED0055C4E2 /* libsubstitute.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubstitute.0.dylib; sourceTree = "<group>"; };
+		886F4F31253B91ED0055C4E2 /* libsubstitute.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubstitute.dylib; sourceTree = "<group>"; };
+		886F4F32253B91ED0055C4E2 /* CydiaSubstrate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CydiaSubstrate.framework; sourceTree = "<group>"; };
+		886F4F45253CDE240055C4E2 /* iPAPatcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iPAPatcher.entitlements; sourceTree = "<group>"; };
+		886F4F48253CDFBE0055C4E2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		888758AD253A767D0015D0A6 /* iPAPatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPAPatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		888758B0253A767D0015D0A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		888758B1253A767D0015D0A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		888758B3253A767D0015D0A6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		888758B4253A767D0015D0A6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		888758B6253A76800015D0A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		888758B9253A76800015D0A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		888758BB253A76800015D0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		888758BC253A76800015D0A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		888758E0253B6F5B0015D0A6 /* optool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = optool; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		888758AA253A767D0015D0A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				886F4F49253CDFBE0055C4E2 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		886F4F47253CDFBE0055C4E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				886F4F48253CDFBE0055C4E2 /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		888758A4253A767D0015D0A6 = {
+			isa = PBXGroup;
+			children = (
+				886F4F45253CDE240055C4E2 /* iPAPatcher.entitlements */,
+				886F4F32253B91ED0055C4E2 /* CydiaSubstrate.framework */,
+				886F4F30253B91ED0055C4E2 /* libsubstitute.0.dylib */,
+				886F4F31253B91ED0055C4E2 /* libsubstitute.dylib */,
+				888758AF253A767D0015D0A6 /* iPA Patcher */,
+				888758AE253A767D0015D0A6 /* Products */,
+				886F4F47253CDFBE0055C4E2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		888758AE253A767D0015D0A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				888758AD253A767D0015D0A6 /* iPAPatcher.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		888758AF253A767D0015D0A6 /* iPA Patcher */ = {
+			isa = PBXGroup;
+			children = (
+				888758E0253B6F5B0015D0A6 /* optool */,
+				888758B0253A767D0015D0A6 /* AppDelegate.h */,
+				888758B1253A767D0015D0A6 /* AppDelegate.m */,
+				888758B3253A767D0015D0A6 /* ViewController.h */,
+				888758B4253A767D0015D0A6 /* ViewController.m */,
+				888758B6253A76800015D0A6 /* Assets.xcassets */,
+				888758B8253A76800015D0A6 /* Main.storyboard */,
+				888758BB253A76800015D0A6 /* Info.plist */,
+				888758BC253A76800015D0A6 /* main.m */,
+			);
+			path = "iPA Patcher";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		888758AC253A767D0015D0A6 /* iPAPatcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 888758C1253A76800015D0A6 /* Build configuration list for PBXNativeTarget "iPAPatcher" */;
+			buildPhases = (
+				888758A9253A767D0015D0A6 /* Sources */,
+				888758AA253A767D0015D0A6 /* Frameworks */,
+				888758AB253A767D0015D0A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPAPatcher;
+			productName = "iPA Patcher";
+			productReference = 888758AD253A767D0015D0A6 /* iPAPatcher.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		888758A5253A767D0015D0A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					888758AC253A767D0015D0A6 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 888758A8253A767D0015D0A6 /* Build configuration list for PBXProject "iPAPatcher" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 888758A4253A767D0015D0A6;
+			productRefGroup = 888758AE253A767D0015D0A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				888758AC253A767D0015D0A6 /* iPAPatcher */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		888758AB253A767D0015D0A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888758B7253A76800015D0A6 /* Assets.xcassets in Resources */,
+				888758BA253A76800015D0A6 /* Main.storyboard in Resources */,
+				886F4F33253B91ED0055C4E2 /* libsubstitute.0.dylib in Resources */,
+				886F4F34253B91ED0055C4E2 /* libsubstitute.dylib in Resources */,
+				886F4F35253B91ED0055C4E2 /* CydiaSubstrate.framework in Resources */,
+				888758E2253B6F720015D0A6 /* optool in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		888758A9253A767D0015D0A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				888758B5253A767D0015D0A6 /* ViewController.m in Sources */,
+				888758BD253A76800015D0A6 /* main.m in Sources */,
+				888758B2253A767D0015D0A6 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		888758B8253A76800015D0A6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				888758B9253A76800015D0A6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		888758BF253A76800015D0A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		888758C0253A76800015D0A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		888758C2253A76800015D0A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iPAPatcher.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T8ALTGMVXN;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = "iPA Patcher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.brandonplank.iPA-Patcher";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		888758C3253A76800015D0A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iPAPatcher.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T8ALTGMVXN;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = "iPA Patcher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.brandonplank.iPA-Patcher";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		888758A8253A767D0015D0A6 /* Build configuration list for PBXProject "iPAPatcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888758BF253A76800015D0A6 /* Debug */,
+				888758C0253A76800015D0A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		888758C1253A76800015D0A6 /* Build configuration list for PBXNativeTarget "iPAPatcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				888758C2253A76800015D0A6 /* Debug */,
+				888758C3253A76800015D0A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 888758A5253A767D0015D0A6 /* Project object */;
+}
