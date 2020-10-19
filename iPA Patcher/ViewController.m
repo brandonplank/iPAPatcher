@@ -76,10 +76,9 @@ NSArray *cmdVInArray(NSString *command) {
 
     /* Read the output a line at a time - output it. */
     while (fgets(path, sizeof(path), fp) != NULL) {
-        printf("%s", path);
+        printf("cmdV: %s", path);
         NSString *formattedPath = [NSString stringWithFormat:@"%s", path];
         [wtfbrandon addObject:formattedPath];
-      
     }
 
     /* close */
@@ -162,13 +161,13 @@ void noticeMsg(NSString *message){
                 });
                 return;
             }
-            cmd = [NSString stringWithFormat:@"(set -- \"%@/deb/Library/MobileSubstrate/DynamicLibraries/\"*.dylib; echo \"$1\")", tempPath];
+            cmd = [NSString stringWithFormat:@"ls %@/deb/Library/MobileSubstrate/DynamicLibraries/*.dylib", tempPath];
 
             dylibPathFinder = cmdVInArray(cmd);
+            NSLog(@"The array or dylibs un-formatted: %@", dylibPathFinder);
             
             for(int i=0;i<dylibPathFinder.count;i++){
                 printf("%s\n", [dylibPathFinder[i] UTF8String]);
-                dylibPath[0] = @"";
                 NSArray *duh = [dylibPathFinder[i] componentsSeparatedByString:@"/"];
                 dylibPath[i] = [[NSString stringWithFormat:@"%@/deb/Library/MobileSubstrate/DynamicLibraries/%@", tempPath, duh.lastObject] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
             }
