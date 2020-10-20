@@ -239,11 +239,10 @@ void noticeMsg(NSString *message){
         system([cmd UTF8String]);
         cmd = [NSString stringWithFormat:@"rm -rf %@", tempPath];
         runCMD(cmd);
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             self.buildIPAOut.title = @"Done.";
-            dispatch_async(dispatch_get_main_queue(), ^{
-                noticeMsg(@"Patching finished, the new iPA should now be in your downloads folder!");
-            });
+            noticeMsg(@"Patching finished, the new iPA should now be in your downloads folder!");
         });
     });
 }
