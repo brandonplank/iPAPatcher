@@ -774,8 +774,8 @@
                                         </connections>
                                     </button>
                                     <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BAP-Kg-4Ng">
-                                        <rect key="frame" x="209" y="206" width="54" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="beta 0.6" id="Ztc-g0-VNX">
+                                        <rect key="frame" x="210" y="206" width="53" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="beta 0.7" id="Ztc-g0-VNX">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

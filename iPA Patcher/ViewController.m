@@ -103,6 +103,7 @@ void noticeMsg(NSString *message){
             });
             return;
         }
+        
         if(!fileExists("/usr/bin/install_name_tool") || !fileExists("/usr/bin/otool") || !fileExists("/usr/bin/plutil") || !fileExists("/usr/bin/plutil")){
             dispatch_async(dispatch_get_main_queue(), ^{
                 errorMsg(@"Please install the xcode command line tools!");
@@ -144,13 +145,19 @@ void noticeMsg(NSString *message){
         
         if(isDeb){
             cmd = @"";
+            if(!fileExists("/usr/local/bin/brew")){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.buildIPAOut.title = @"Installing brew.";
+                });
+                NSString *cmd = [NSString stringWithFormat:@"/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\""];
+                system([cmd UTF8String]);
+            }
             if(!fileExists("/usr/local/bin/dpkg")){
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    errorMsg(@"Please install dpkg!");
+                    self.buildIPAOut.title = @"Installing dpkg.";
                 });
-                cmd = [NSString stringWithFormat:@"rm -rf %@", tempPath];
+                NSString *cmd = [NSString stringWithFormat:@"brew install dpkg"];
                 system([cmd UTF8String]);
-                return;
             }
             cmd = [NSString stringWithFormat:@"/usr/local/bin/dpkg -x %@ %@/deb/", [[NSString stringWithFormat:@"%@", dylibPath[0]] stringByReplacingOccurrencesOfString:@"\n" withString:@""] ,tempPath];
             system([cmd UTF8String]);
@@ -239,7 +246,6 @@ void noticeMsg(NSString *message){
         system([cmd UTF8String]);
         cmd = [NSString stringWithFormat:@"rm -rf %@", tempPath];
         runCMD(cmd);
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             self.buildIPAOut.title = @"Done.";
             noticeMsg(@"Patching finished, the new iPA should now be in your downloads folder!");
