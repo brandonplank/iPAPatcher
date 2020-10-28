@@ -109,13 +109,18 @@ void Msg(NSString *message, BOOL error){
 }
 
 - (IBAction)build:(id)sender {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.buildIPAOut.title = @"Patching.";
+    });
     if(patch_ipa(ipaPath, dylibPath, isDeb) != IPAPATCHER_SUCCESS){
         dispatch_async(dispatch_get_main_queue(), ^{
             Msg(@"The patching process has failed", true);
+            self.buildIPAOut.title = @"Failed.";
         });
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
             Msg(@"The iPA has been patched!", false);
+            self.buildIPAOut.title = @"Patched.";
         });
     }
 }

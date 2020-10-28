@@ -30,7 +30,7 @@
 #define IPAPATCHER_FAILURE -1
 #define EMPTY_STR @""
 
-#define DEBUG 0
+#define DEBUG 1
 
 
 #define DEBUG_ON 1
