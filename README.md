@@ -1,4 +1,6 @@
 # iPAPatcher
+
+### Only works with simple .debs, not complex ones like cercube.
 ## Requirements
 - Xcode Command Line Tools
 - zip
