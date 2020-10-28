@@ -1,0 +1,20 @@
+PODS:
+  - SSZipArchive (2.2.3)
+  - STPrivilegedTask (1.0.1)
+
+DEPENDENCIES:
+  - SSZipArchive
+  - STPrivilegedTask
+
+SPEC REPOS:
+  trunk:
+    - SSZipArchive
+    - STPrivilegedTask
+
+SPEC CHECKSUMS:
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  STPrivilegedTask: 103f97827454e786074640cf89d303be344498c7
+
+PODFILE CHECKSUM: 4970143067313c912b2cadaaf901df2dd2a8b9bc
+
+COCOAPODS: 1.9.3

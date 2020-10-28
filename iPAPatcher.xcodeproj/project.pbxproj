@@ -3,10 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7230C6CDD3DFCA92D01E184A /* Pods_iPAPatcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD18AD26FF00171B647FF5FD /* Pods_iPAPatcher.framework */; };
+		8856CCF92548C4660019033B /* libarchive.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8856CCF82548C45E0019033B /* libarchive.2.tbd */; };
+		8856CCFC2548C4710019033B /* libarchive.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8856CCFB2548C46C0019033B /* libarchive.tbd */; };
+		8856CD032548C5380019033B /* patcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8856CD022548C5380019033B /* patcher.m */; };
+		8856CD102548C6420019033B /* operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8856CD0A2548C6420019033B /* operations.m */; };
+		8856CD112548C6420019033B /* headers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8856CD0D2548C6420019033B /* headers.m */; };
+		8856CD122548C6420019033B /* NSData+Reading.m in Sources */ = {isa = PBXBuildFile; fileRef = 8856CD0F2548C6420019033B /* NSData+Reading.m */; };
 		886F4F33253B91ED0055C4E2 /* libsubstitute.0.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 886F4F30253B91ED0055C4E2 /* libsubstitute.0.dylib */; };
 		886F4F34253B91ED0055C4E2 /* libsubstitute.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 886F4F31253B91ED0055C4E2 /* libsubstitute.dylib */; };
 		886F4F35253B91ED0055C4E2 /* CydiaSubstrate.framework in Resources */ = {isa = PBXBuildFile; fileRef = 886F4F32253B91ED0055C4E2 /* CydiaSubstrate.framework */; };
@@ -16,10 +23,20 @@
 		888758B7253A76800015D0A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 888758B6253A76800015D0A6 /* Assets.xcassets */; };
 		888758BA253A76800015D0A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 888758B8253A76800015D0A6 /* Main.storyboard */; };
 		888758BD253A76800015D0A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 888758BC253A76800015D0A6 /* main.m */; };
-		888758E2253B6F720015D0A6 /* optool in Resources */ = {isa = PBXBuildFile; fileRef = 888758E0253B6F5B0015D0A6 /* optool */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8856CCF82548C45E0019033B /* libarchive.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.2.tbd; path = usr/lib/libarchive.2.tbd; sourceTree = SDKROOT; };
+		8856CCFB2548C46C0019033B /* libarchive.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.tbd; path = usr/lib/libarchive.tbd; sourceTree = SDKROOT; };
+		8856CD022548C5380019033B /* patcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = patcher.m; sourceTree = "<group>"; };
+		8856CD072548C5550019033B /* patcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patcher.h; sourceTree = "<group>"; };
+		8856CD092548C6420019033B /* NSData+Reading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Reading.h"; sourceTree = "<group>"; };
+		8856CD0A2548C6420019033B /* operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = operations.m; sourceTree = "<group>"; };
+		8856CD0B2548C6420019033B /* headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = headers.h; sourceTree = "<group>"; };
+		8856CD0C2548C6420019033B /* operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = operations.h; sourceTree = "<group>"; };
+		8856CD0D2548C6420019033B /* headers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = headers.m; sourceTree = "<group>"; };
+		8856CD0E2548C6420019033B /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		8856CD0F2548C6420019033B /* NSData+Reading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Reading.m"; sourceTree = "<group>"; };
 		886F4F30253B91ED0055C4E2 /* libsubstitute.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubstitute.0.dylib; sourceTree = "<group>"; };
 		886F4F31253B91ED0055C4E2 /* libsubstitute.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubstitute.dylib; sourceTree = "<group>"; };
 		886F4F32253B91ED0055C4E2 /* CydiaSubstrate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CydiaSubstrate.framework; sourceTree = "<group>"; };
@@ -34,7 +51,9 @@
 		888758B9253A76800015D0A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		888758BB253A76800015D0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		888758BC253A76800015D0A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		888758E0253B6F5B0015D0A6 /* optool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = optool; sourceTree = "<group>"; };
+		ABB6B554079F36BDD9B3B52B /* Pods-iPAPatcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPAPatcher.debug.xcconfig"; path = "Target Support Files/Pods-iPAPatcher/Pods-iPAPatcher.debug.xcconfig"; sourceTree = "<group>"; };
+		BD18AD26FF00171B647FF5FD /* Pods_iPAPatcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPAPatcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD07A7C6419847674CF04E09 /* Pods-iPAPatcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPAPatcher.release.xcconfig"; path = "Target Support Files/Pods-iPAPatcher/Pods-iPAPatcher.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,17 +61,74 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8856CCFC2548C4710019033B /* libarchive.tbd in Frameworks */,
 				886F4F49253CDFBE0055C4E2 /* Security.framework in Frameworks */,
+				8856CCF92548C4660019033B /* libarchive.2.tbd in Frameworks */,
+				7230C6CDD3DFCA92D01E184A /* Pods_iPAPatcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D63F6DCD17E13A9B66F0999 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABB6B554079F36BDD9B3B52B /* Pods-iPAPatcher.debug.xcconfig */,
+				DD07A7C6419847674CF04E09 /* Pods-iPAPatcher.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8856CCFF2548C4C80019033B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				888758B3253A767D0015D0A6 /* ViewController.h */,
+				888758B4253A767D0015D0A6 /* ViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8856CD002548C4D50019033B /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				888758B0253A767D0015D0A6 /* AppDelegate.h */,
+				888758B1253A767D0015D0A6 /* AppDelegate.m */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		8856CD012548C4E70019033B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				8856CD082548C62C0019033B /* optool */,
+				8856CD022548C5380019033B /* patcher.m */,
+				8856CD072548C5550019033B /* patcher.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		8856CD082548C62C0019033B /* optool */ = {
+			isa = PBXGroup;
+			children = (
+				8856CD0E2548C6420019033B /* defines.h */,
+				8856CD0B2548C6420019033B /* headers.h */,
+				8856CD0D2548C6420019033B /* headers.m */,
+				8856CD092548C6420019033B /* NSData+Reading.h */,
+				8856CD0F2548C6420019033B /* NSData+Reading.m */,
+				8856CD0C2548C6420019033B /* operations.h */,
+				8856CD0A2548C6420019033B /* operations.m */,
+			);
+			path = optool;
+			sourceTree = "<group>";
+		};
 		886F4F47253CDFBE0055C4E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8856CCFB2548C46C0019033B /* libarchive.tbd */,
+				8856CCF82548C45E0019033B /* libarchive.2.tbd */,
 				886F4F48253CDFBE0055C4E2 /* Security.framework */,
+				BD18AD26FF00171B647FF5FD /* Pods_iPAPatcher.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -67,6 +143,7 @@
 				888758AF253A767D0015D0A6 /* iPA Patcher */,
 				888758AE253A767D0015D0A6 /* Products */,
 				886F4F47253CDFBE0055C4E2 /* Frameworks */,
+				7D63F6DCD17E13A9B66F0999 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,11 +158,9 @@
 		888758AF253A767D0015D0A6 /* iPA Patcher */ = {
 			isa = PBXGroup;
 			children = (
-				888758E0253B6F5B0015D0A6 /* optool */,
-				888758B0253A767D0015D0A6 /* AppDelegate.h */,
-				888758B1253A767D0015D0A6 /* AppDelegate.m */,
-				888758B3253A767D0015D0A6 /* ViewController.h */,
-				888758B4253A767D0015D0A6 /* ViewController.m */,
+				8856CD012548C4E70019033B /* src */,
+				8856CD002548C4D50019033B /* Delegates */,
+				8856CCFF2548C4C80019033B /* View */,
 				888758B6253A76800015D0A6 /* Assets.xcassets */,
 				888758B8253A76800015D0A6 /* Main.storyboard */,
 				888758BB253A76800015D0A6 /* Info.plist */,
@@ -101,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 888758C1253A76800015D0A6 /* Build configuration list for PBXNativeTarget "iPAPatcher" */;
 			buildPhases = (
+				D3E65DD544C1D5772E2F44DE /* [CP] Check Pods Manifest.lock */,
 				888758A9253A767D0015D0A6 /* Sources */,
 				888758AA253A767D0015D0A6 /* Frameworks */,
 				888758AB253A767D0015D0A6 /* Resources */,
+				674DF8F2016A34DBF43D40FA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,11 +232,52 @@
 				886F4F33253B91ED0055C4E2 /* libsubstitute.0.dylib in Resources */,
 				886F4F34253B91ED0055C4E2 /* libsubstitute.dylib in Resources */,
 				886F4F35253B91ED0055C4E2 /* CydiaSubstrate.framework in Resources */,
-				888758E2253B6F720015D0A6 /* optool in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		674DF8F2016A34DBF43D40FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iPAPatcher/Pods-iPAPatcher-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iPAPatcher/Pods-iPAPatcher-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iPAPatcher/Pods-iPAPatcher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3E65DD544C1D5772E2F44DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iPAPatcher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		888758A9253A767D0015D0A6 /* Sources */ = {
@@ -167,8 +285,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				888758B5253A767D0015D0A6 /* ViewController.m in Sources */,
+				8856CD102548C6420019033B /* operations.m in Sources */,
 				888758BD253A76800015D0A6 /* main.m in Sources */,
 				888758B2253A767D0015D0A6 /* AppDelegate.m in Sources */,
+				8856CD112548C6420019033B /* headers.m in Sources */,
+				8856CD032548C5380019033B /* patcher.m in Sources */,
+				8856CD122548C6420019033B /* NSData+Reading.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +421,7 @@
 		};
 		888758C2253A76800015D0A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABB6B554079F36BDD9B3B52B /* Pods-iPAPatcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,7 +437,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 0.7;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.brandonplank.iPA-Patcher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -322,6 +445,7 @@
 		};
 		888758C3253A76800015D0A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD07A7C6419847674CF04E09 /* Pods-iPAPatcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -337,7 +461,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 0.7;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.brandonplank.iPA-Patcher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

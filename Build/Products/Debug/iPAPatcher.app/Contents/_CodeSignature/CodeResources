@@ -10,23 +10,23 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		mY+ZbazlyYviNzBVwNLiYIsl52Y=
+		dnMqK96thNHEbigD3/d4npWZkkw=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		k3ceFxeiTRo3VXSmakZXfGJowIY=
+		tToMAGgRjAT9u+TnAW5BOmoy4FY=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		xVBPCDwNT1hrzPFmNRYx93YjpYk=
+		gG7/wuu09EzZBTlYTJTSdwwp4gg=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<data>
-		0EwhZsepEV/jSnQi1fqccdS6Ebw=
+		A7gMksnTdSRKwC59kfeguA2aSf4=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
-		WzdPUJVvAZ8G05HwL53WgsPzZHA=
+		4NvX46ImuvNFo56lTn4tCS2Tpck=
 		</data>
 		<key>Resources/CydiaSubstrate.framework/CydiaSubstrate</key>
 		<data>
@@ -48,10 +48,6 @@
 		<data>
 		N7HJiri/MtxxdJIj6FNA7+LC/28=
 		</data>
-		<key>Resources/optool</key>
-		<data>
-		FCN+7BdsBykFNLbTC0clq9dfIYw=
-		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -70,55 +66,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mY+ZbazlyYviNzBVwNLiYIsl52Y=
+			dnMqK96thNHEbigD3/d4npWZkkw=
 			</data>
 			<key>hash2</key>
 			<data>
-			g2TZzPLmet7+/RewfUnQNdgYCyqHdw8c5E0gE8deJc0=
+			m1AkEdK5O1653mf/fmE48QygnluYceLuvfZ+z2NN1SQ=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			k3ceFxeiTRo3VXSmakZXfGJowIY=
+			tToMAGgRjAT9u+TnAW5BOmoy4FY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Cb2UrJ5lyba2uVaJVBpmqRdcf01u69RGGn10+Xk54kU=
+			Kp3HLT3MlD2smd8gKU6AvdSD/aZHCuWnAaa8XzY754s=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xVBPCDwNT1hrzPFmNRYx93YjpYk=
+			gG7/wuu09EzZBTlYTJTSdwwp4gg=
 			</data>
 			<key>hash2</key>
 			<data>
-			KWDTd4TKgTCaXQJIMJMqQIfKZgZTBfypHzQtDy513z8=
+			cyhbGQR4VfgiVeT5H/Xwibkupd1b3x4QvtEOBJVoROI=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0EwhZsepEV/jSnQi1fqccdS6Ebw=
+			A7gMksnTdSRKwC59kfeguA2aSf4=
 			</data>
 			<key>hash2</key>
 			<data>
-			VFj4FLmrFS6vjODMdi/aWQxHThpiu8HmSA4GQstLpRk=
+			4zPO3egGdcNOrtlZbKk6HXnWudFi1L+mGL9pUzFov/Q=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WzdPUJVvAZ8G05HwL53WgsPzZHA=
+			4NvX46ImuvNFo56lTn4tCS2Tpck=
 			</data>
 			<key>hash2</key>
 			<data>
-			+4fAKYJkqiXh6Z1LdxpxhL9XahfWuEWOPc5kn5QIkrk=
+			UGQMwirLupVd/aHDHD3tWAOBqMQZb2vqIeomqPdX9PY=
 			</data>
 		</dict>
 		<key>Resources/CydiaSubstrate.framework/CydiaSubstrate</key>
@@ -174,17 +170,6 @@
 			<key>hash2</key>
 			<data>
 			uKhn44tF4LVSfDd1Kf0dY3S7mLLeCm4BELPaV5GUyfI=
-			</data>
-		</dict>
-		<key>Resources/optool</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FCN+7BdsBykFNLbTC0clq9dfIYw=
-			</data>
-			<key>hash2</key>
-			<data>
-			tjV3GQwJfBizh6hv+d/hsnunXt1vOspSrknZmJTA3Ik=
 			</data>
 		</dict>
 	</dict>

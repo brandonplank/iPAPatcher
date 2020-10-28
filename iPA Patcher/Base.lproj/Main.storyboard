@@ -734,7 +734,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="choose_ipa:" target="XfG-lQ-9wD" id="PBz-ca-KgE"/>
+                                            <action selector="choose_ipa:" target="XfG-lQ-9wD" id="bCE-CY-6xI"/>
                                         </connections>
                                     </button>
                                     <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-FE-dUb">
@@ -748,7 +748,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="choose_dylib:" target="XfG-lQ-9wD" id="nB1-tF-ozw"/>
+                                            <action selector="choose_deb_dylib:" target="XfG-lQ-9wD" id="OVx-PU-crf"/>
                                         </connections>
                                     </button>
                                     <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j9n-Fb-kXH">
@@ -770,12 +770,12 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="patch:" target="XfG-lQ-9wD" id="CnX-Ov-zMh"/>
+                                            <action selector="build:" target="XfG-lQ-9wD" id="fUu-tB-Gs8"/>
                                         </connections>
                                     </button>
                                     <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BAP-Kg-4Ng">
-                                        <rect key="frame" x="210" y="206" width="53" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="beta 0.7" id="Ztc-g0-VNX">
+                                        <rect key="frame" x="215" y="206" width="43" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="RC 1.0" id="Ztc-g0-VNX">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
