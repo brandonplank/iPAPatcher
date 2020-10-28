@@ -32,6 +32,10 @@
     #define CPU_TYPE_ARM64 (CPU_TYPE_ARM | CPU_ARCH_ABI64)
 #endif
 
+#ifndef CPU_TYPE_ARM64E
+    #define CPU_TYPE_ARM64E 0x00000002
+#endif
+
 #define LOG(fmt, args...) printf(fmt "\n", ##args)
 
 #define CPU(CPUTYPE) ({ \
@@ -44,8 +48,11 @@
         c = "arm"; \
     if (CPUTYPE == CPU_TYPE_ARM64) \
         c = "arm64"; \
+    if (CPUTYPE == CPU_TYPE_ARM64) \
+        c = "arm64e"; \
     c; \
 })
+//Idk, maybe should support arm64e?
 
 #define LC(LOADCOMMAND) ({ \
     const char *c = ""; \
