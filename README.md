@@ -3,7 +3,7 @@
 - Xcode Command Line Tools
 - zip
 - dpkg(brew install dpkg)
-- macOS >= 10.14
+- macOS >= 10.10
 
 - Credits:
 - @_bplank
