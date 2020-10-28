@@ -15,6 +15,15 @@ BOOL folderExists(NSString *folder){
     return isDirectory;
 }
 
+int cp(NSString *file, NSString *to){
+    NSTask *cp_task = [[NSTask alloc] init];
+    cp_task.launchPath = CP_PATH;
+    cp_task.arguments = @[@"-r", file, to];
+    [cp_task launch];
+    [cp_task waitUntilExit];
+    return IPAPATCHER_SUCCESS;
+}
+
 int patch_binary(NSString *app_binary, NSString* dylib_path){
     NSData *originalData = [NSData dataWithContentsOfFile:app_binary];
     NSMutableData *binary = originalData.mutableCopy;
@@ -286,31 +295,14 @@ int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb){
         printf("START====\n%s\n%s\n%s\n", [subpath1 UTF8String], [subpath2 UTF8String], [substrate UTF8String]);
     }
     //TODO: use [manager copyItemAtPath:ipa_path toPath:selected_path error:nil]; I tried it, and it just failed to copy every time.
-    NSTask *cp_task = [[NSTask alloc] init];
-    cp_task.launchPath = CP_PATH;
-    cp_task.arguments = @[subpath1, DylibFolder];
-    [cp_task launch];
-    [cp_task waitUntilExit];
-    //TODO: use [manager copyItemAtPath:ipa_path toPath:selected_path error:nil]; I tried it, and it just failed to copy every time.
-    cp_task = [[NSTask alloc] init];
-    cp_task.launchPath = CP_PATH;
-    cp_task.arguments = @[subpath2, DylibFolder];
-    [cp_task launch];
-    [cp_task waitUntilExit];
-    //TODO: use [manager copyItemAtPath:ipa_path toPath:selected_path error:nil]; I tried it, and it just failed to copy every time.
-    cp_task = [[NSTask alloc] init];
-    cp_task.launchPath = CP_PATH;
-    cp_task.arguments = @[@"-r", substrate, FrameworkFolder];
-    [cp_task launch];
-    [cp_task waitUntilExit];
+    ASSERT(cp(subpath1, DylibFolder), @"Failed to copy over libsubstitute.0", true);
+    ASSERT(cp(subpath2, DylibFolder), @"Failed to copy over libsubstitute", true);
+    ASSERT(cp(substrate, FrameworkFolder), @"Failed to copy over CydiaSubstrate", true);
     
     for(int i=0;i<dylib_or_deb.count;i++){
         //TODO: use [manager copyItemAtPath:ipa_path toPath:selected_path error:nil]; I tried it, and it just failed to copy every time.
-        cp_task = [[NSTask alloc] init];
-        cp_task.launchPath = CP_PATH;
-        cp_task.arguments = @[dylib_or_deb[i], DylibFolder];
-        [cp_task launch];
-        [cp_task waitUntilExit];
+        NSString *msg = [NSString stringWithFormat:@"Failed to copy %@", dylib_or_deb[i]];
+        ASSERT(cp(dylib_or_deb[i], DylibFolder), msg, true);
     }
     
     // Patch the binary to load given frameworks/dylibs
