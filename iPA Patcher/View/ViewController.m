@@ -112,7 +112,7 @@ void Msg(NSString *message, BOOL error){
     dispatch_async(dispatch_get_main_queue(), ^{
         self.buildIPAOut.title = @"Patching.";
     });
-    if(patch_ipa(ipaPath, dylibPath, isDeb) != IPAPATCHER_SUCCESS){
+    if(patch_ipa(ipaPath, dylibPath, isDeb, false, NULL) != IPAPATCHER_SUCCESS){
         dispatch_async(dispatch_get_main_queue(), ^{
             Msg(@"The patching process has failed", true);
             self.buildIPAOut.title = @"Failed.";

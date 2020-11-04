@@ -77,20 +77,24 @@ int patch_binary(NSString *app_binary, NSString* dylib_path){
     return IPAPATCHER_SUCCESS;
 }
 
-int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb){
+int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb, BOOL commandLine, NSString *outPath){
     // Checks is Xcode tools are installed, used their given paths, may change in the future.
     printf("[*] Patching iPA\n");
     if(!fileExists([INSTALL_NAME_TOOL_PATH UTF8String])){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            Msg(@"Please install the xcode command line tools!", true);
-        });
+        if(!commandLine){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                Msg(@"Please install the xcode command line tools!", true);
+            });
+        }
         return IPAPATCHER_FAILURE;
     }
     // NOTE: Should never trigger this warning, but its here anyways just in case.
     if([ipa_path  isEqual: EMPTY_STR] || [dylib_or_deb  isEqual: EMPTY_STR] || !fileExists([ipa_path UTF8String]) || !fileExists([dylib_or_deb[0] UTF8String])){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            Msg(@"Please select all the correct files.", true);
-        });
+        if(!commandLine){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                Msg(@"Please select all the correct files.", true);
+            });
+        }
         return IPAPATCHER_FAILURE;
     }
     
@@ -106,9 +110,11 @@ int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb){
             NSLog(@"No illegal characters found in the iPA filename.");
         }
     } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            Msg(@"Your iPA filename has a illegal character, these include\n!@#$%^&*();?", true);
-        });
+        if(!commandLine){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                Msg(@"Your iPA filename has a illegal character, these include\n!@#$%^&*();?", true);
+            });
+        }
         return IPAPATCHER_FAILURE;
     }
     NSRange range2 = [dylib_or_deb[0] rangeOfCharacterFromSet:charset];
@@ -117,9 +123,11 @@ int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb){
             NSLog(@"No illegal characters found in the dylib/deb filename.");
         }
     } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            Msg(@"Your dylib/deb filename has a illegal character, these include\n!@#$%^&*();?", true);
-        });
+        if(!commandLine){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                Msg(@"Your dylib/deb filename has a illegal character, these include\n!@#$%^&*();?", true);
+            });
+        }
         return IPAPATCHER_FAILURE;
     }
     
@@ -129,9 +137,11 @@ int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb){
     NSFileManager *manager = [NSFileManager defaultManager];
     NSURL *applicationSupport = [manager URLForDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:false error:&error];
     if(error){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            Msg(@"Failed to get Application Support directory.", true);
-        });
+        if(!commandLine){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                Msg(@"Failed to get Application Support directory.", true);
+            });
+        }
         return IPAPATCHER_FAILURE;
     }
     NSString *identifier = [[NSBundle mainBundle] bundleIdentifier];
@@ -188,9 +198,11 @@ int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb){
     if (resultDictionary) {
         app_binary = [resultDictionary objectForKey:NameKey];
     } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            Msg(@"Failed to plist data.", true);
-        });
+        if(!commandLine){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                Msg(@"Failed to plist data.", true);
+            });
+        }
         return IPAPATCHER_FAILURE;
     }
     
@@ -225,35 +237,45 @@ int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb){
         }
         
         NSString *deb_insatll_temp = [NSString stringWithFormat:@"%@/deb", temp_path];
-        // Create task
-        STPrivilegedTask *privilegedTask = [STPrivilegedTask new];
-        [privilegedTask setLaunchPath:DPKG_PATH];
-        [privilegedTask setArguments:@[@"-x", @([[[NSString stringWithFormat:@"%@", dylib_or_deb[0]] stringByReplacingOccurrencesOfString:@"\n" withString:@""] UTF8String]), @([deb_insatll_temp UTF8String])]];
+        if(!commandLine){
+            // Create task
+            STPrivilegedTask *privilegedTask = [STPrivilegedTask new];
+            [privilegedTask setLaunchPath:DPKG_PATH];
+            [privilegedTask setArguments:@[@"-x", @([[[NSString stringWithFormat:@"%@", dylib_or_deb[0]] stringByReplacingOccurrencesOfString:@"\n" withString:@""] UTF8String]), @([deb_insatll_temp UTF8String])]];
 
-        // Launch it, user is prompted for password
-        OSStatus err = [privilegedTask launch];
-        if (err == errAuthorizationSuccess) {
-            if(DEBUG == DEBUG_ON){
-                NSLog(@"Task successfully launched");
+            // Launch it, user is prompted for password
+            OSStatus err = [privilegedTask launch];
+            if (err == errAuthorizationSuccess) {
+                if(DEBUG == DEBUG_ON){
+                    NSLog(@"Task successfully launched");
+                }
+            } else if (err == errAuthorizationCanceled) {
+                if(DEBUG == DEBUG_ON){
+                    NSLog(@"User cancelled");
+                }
+                return IPAPATCHER_FAILURE;
+            } else {
+                if(DEBUG == DEBUG_ON){
+                    NSLog(@"Something went wrong");
+                }
+                return IPAPATCHER_FAILURE;
             }
-        } else if (err == errAuthorizationCanceled) {
-            if(DEBUG == DEBUG_ON){
-                NSLog(@"User cancelled");
-            }
-            return IPAPATCHER_FAILURE;
+            [privilegedTask waitUntilExit];
         } else {
-            if(DEBUG == DEBUG_ON){
-                NSLog(@"Something went wrong");
-            }
-            return IPAPATCHER_FAILURE;
+            NSTask *command = [[NSTask alloc] init];
+            command.launchPath = DPKG_PATH;
+            command.arguments = @[@"-x", @([[[NSString stringWithFormat:@"%@", dylib_or_deb[0]] stringByReplacingOccurrencesOfString:@"\n" withString:@""] UTF8String]), @([deb_insatll_temp UTF8String])];
+            [command launch];
+            [command waitUntilExit];
         }
-        [privilegedTask waitUntilExit];
         
         NSString *debcheck = [NSString stringWithFormat:@"%@/deb/Library/MobileSubstrate/DynamicLibraries", temp_path];
         if(!folderExists(debcheck)){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                Msg(@"The tweak you entered is not in the correct format.", true);
-            });
+            if(!commandLine){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    Msg(@"The tweak you entered is not in the correct format.", true);
+                });
+            }
             return IPAPATCHER_FAILURE;
         }
         NSString *deb_dylibs = [NSString stringWithFormat:@"%@/deb/Library/MobileSubstrate/DynamicLibraries/", temp_path];
@@ -343,26 +365,32 @@ int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb){
     
     printf("[*] Done\n");
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSSavePanel *panel = [NSSavePanel savePanel];
-        // NSInteger result;
+    if(!commandLine){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSSavePanel *panel = [NSSavePanel savePanel];
+            // NSInteger result;
 
-        [panel setAllowedFileTypes:@[@"ipa"]];
-        [panel beginWithCompletionHandler:^(NSInteger result){
+            [panel setAllowedFileTypes:@[@"ipa"]];
+            [panel beginWithCompletionHandler:^(NSInteger result){
 
-        //OK button pushed
-        if (result == NSFileHandlingPanelOKButton) {
-            // Close panel before handling errors
+            //OK button pushed
+            if (result == NSFileHandlingPanelOKButton) {
+                // Close panel before handling errors
 
-            NSString *selected_path = [[panel URL] path];
-                    
-            NSString *ipa_path = [NSString stringWithFormat:@"%@/Payload.ipa", temp_path];
-            ASSERT([manager copyItemAtPath:ipa_path toPath:selected_path error:nil], @"Failed to copy ipa to user location.",
-                   true);
-            ASSERT([manager removeItemAtPath:temp_path error:nil], @"Failed to remove temp path", true);
-        }else{
-            ASSERT([manager removeItemAtPath:temp_path error:nil], @"Failed to remove temp path", true);
-        }}];
-    });
+                NSString *selected_path = [[panel URL] path];
+                        
+                NSString *ipa_path = [NSString stringWithFormat:@"%@/Payload.ipa", temp_path];
+                ASSERT([manager copyItemAtPath:ipa_path toPath:selected_path error:nil], @"Failed to copy ipa to user location.",
+                       true);
+                ASSERT([manager removeItemAtPath:temp_path error:nil], @"Failed to remove temp path", true);
+            }else{
+                ASSERT([manager removeItemAtPath:temp_path error:nil], @"Failed to remove temp path", true);
+            }}];
+        });
+    } else {
+        NSString *ipa_path = [NSString stringWithFormat:@"%@/Payload.ipa", temp_path];
+        ASSERT([manager copyItemAtPath:ipa_path toPath:outPath error:nil], @"Failed to copy ipa to user location.",
+               true);
+    }
     return IPAPATCHER_SUCCESS;
 }

@@ -57,6 +57,6 @@ dispatch_async(dispatch_get_main_queue(), ^{\
 } \
 while (false)
 
-int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb);
+int patch_ipa(NSString *ipa_path, NSMutableArray *dylib_or_deb, BOOL isDeb, BOOL commandLine, NSString *outPath);
 
 #endif /* patcher_h */
