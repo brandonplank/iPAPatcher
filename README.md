@@ -1,5 +1,5 @@
 # iPAPatcher
-###Command line usage:
+### Command line usage:
 iPAPatcher -c IPA_to_patch.ipa dylib/deb_path out_path.ipa
 ### Only works with simple .debs, not complex ones like cercube.
 ## Requirements
