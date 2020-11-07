@@ -789,13 +789,25 @@
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="IPA-Patcher" id="aTf-ps-ZV0"/>
                                     </imageView>
+                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mhS-ot-mSd">
+                                        <rect key="frame" x="429" y="382" width="25" height="25"/>
+                                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Y6P-zj-aMr">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="help:" target="XfG-lQ-9wD" id="6BM-Eg-ZjF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="R1C-fm-GQr" firstAttribute="top" secondItem="j9n-Fb-kXH" secondAttribute="bottom" constant="45" id="11I-Jv-nNz"/>
                                     <constraint firstItem="j9n-Fb-kXH" firstAttribute="top" secondItem="pBz-fW-iW8" secondAttribute="bottom" constant="32" id="48P-U5-v9n"/>
+                                    <constraint firstAttribute="trailing" secondItem="mhS-ot-mSd" secondAttribute="trailing" constant="20" symbolic="YES" id="6fx-XT-COW"/>
                                     <constraint firstItem="pBz-fW-iW8" firstAttribute="centerX" secondItem="bvr-3P-nKJ" secondAttribute="centerX" id="7py-bH-z1w"/>
                                     <constraint firstAttribute="bottom" secondItem="bsb-FE-dUb" secondAttribute="bottom" constant="20" symbolic="YES" id="Dm0-g1-RF0"/>
                                     <constraint firstItem="R1C-fm-GQr" firstAttribute="centerX" secondItem="bvr-3P-nKJ" secondAttribute="centerX" id="Ee1-HG-Xto"/>
+                                    <constraint firstItem="mhS-ot-mSd" firstAttribute="top" secondItem="bvr-3P-nKJ" secondAttribute="top" constant="20" symbolic="YES" id="ORy-v2-Ysb"/>
                                     <constraint firstAttribute="trailing" secondItem="bsb-FE-dUb" secondAttribute="trailing" constant="20" symbolic="YES" id="PoA-ay-ckP"/>
                                     <constraint firstItem="BAP-Kg-4Ng" firstAttribute="centerX" secondItem="bvr-3P-nKJ" secondAttribute="centerX" id="RlL-Up-9CT"/>
                                     <constraint firstAttribute="bottom" secondItem="mG8-w3-FaE" secondAttribute="bottom" constant="20" symbolic="YES" id="Y9U-rv-qGb"/>
