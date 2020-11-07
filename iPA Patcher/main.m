@@ -17,6 +17,14 @@ bool isdeb = false;
 
 int main(int argc, const char * argv[]) {
     printf("iPAPatcher by Brandon Plank(@_bplank)\n");
+    if(DEBUG == DEBUG_ON){
+        for(int i = 0; i< argc; i++){
+            printf("argv[%d] %s\n", i, argv[i]);
+        }
+    }
+    if(!argv[1]){
+        return NSApplicationMain(argc, argv);
+    }
     NSString *command = [NSString stringWithUTF8String:argv[1]];
     if(![command  isEqual: @"-c"]){
         return NSApplicationMain(argc, argv);
