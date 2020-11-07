@@ -816,6 +816,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="app_version" destination="BAP-Kg-4Ng" id="1tZ-d5-zLj"/>
                         <outlet property="buildIPAOut" destination="R1C-fm-GQr" id="lvw-fh-Uyd"/>
                         <outlet property="chooseDylibOut" destination="bsb-FE-dUb" id="PHY-id-BdL"/>
                         <outlet property="chooseIPAOut" destination="mG8-w3-FaE" id="fab-cb-Z0v"/>

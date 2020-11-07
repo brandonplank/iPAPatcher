@@ -18,6 +18,17 @@ bool isDeb = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSWorkspace *ws = [NSWorkspace sharedWorkspace];
+    NSArray *apps = [ws runningApplications];
+    for (NSRunningApplication *app in apps)
+    {
+        NSBundle *bundle = [NSBundle bundleWithURL:[app bundleURL]];
+        NSDictionary *info = [bundle infoDictionary];
+        NSString *version = info[@"CFBundleShortVersionString"];
+        if(version != nil){
+            [_app_version setStringValue:version];
+        }
+    }
 }
 
 

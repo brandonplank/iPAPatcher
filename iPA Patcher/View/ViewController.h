@@ -15,6 +15,7 @@
 @property (weak) IBOutlet NSButton *chooseIPAOut;
 @property (weak) IBOutlet NSButton *chooseDylibOut;
 @property (weak) IBOutlet NSTextField *statusText;
+@property (weak) IBOutlet NSTextField *app_version;
 
 void Msg(NSString *message, BOOL error);
 @end
