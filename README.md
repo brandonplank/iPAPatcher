@@ -5,7 +5,6 @@ iPAPatcher -c IPA_to_patch.ipa dylib/deb_path out_path.ipa
 ## Requirements
 - Xcode Command Line Tools
 - zip
-- dpkg(brew install dpkg)
 - macOS >= 10.10
 
 - Credits:
