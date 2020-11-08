@@ -48,12 +48,7 @@
 #define ASSERT(test, message, fatal) do \
 if (!(test)) { \
 int saved_errno = errno; \
-if(DEBUG == DEBUG_ON) { \
 NSLog(@"ASSERT(%d:%s)@%s:%u[%s]\nError message: %@", saved_errno, #test, __FILENAME__, __LINE__, __FUNCTION__, message); \
-} \
-dispatch_async(dispatch_get_main_queue(), ^{\
-    Msg(message, fatal);\
-});\
 } \
 while (false)
 
